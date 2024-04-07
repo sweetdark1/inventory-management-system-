@@ -19,6 +19,9 @@ this part will be added after the implementation
 
 # Entity-Relationship Diagram (ERD)
 
+![diagram-export-4-8-2024-12_26_14-AM](https://github.com/sweetdark1/inventory-management-system-/assets/97196200/63f551b0-7963-4337-8826-2adf0792a418)
+
+
 ## Entities
 
 ### Product
@@ -48,7 +51,4 @@ this part will be added after the implementation
   - quantity
   - order_date
   - delivery_date
-    
-![diagram-export-4-8-2024-12_26_14-AM](https://github.com/sweetdark1/inventory-management-system-/assets/97196200/63f551b0-7963-4337-8826-2adf0792a418)
-
 
