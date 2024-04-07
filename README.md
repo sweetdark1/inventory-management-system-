@@ -1,7 +1,6 @@
 # inventory-management-system-
 mohammad dadoa 1181622
 
-
 this  is my inventory management system designed to provide a platform for managing products, suppliers, orders, and waste.
 
 ## Description
@@ -21,31 +20,26 @@ this part will be added after the implementation
 
 ![diagram-export-4-8-2024-12_26_14-AM](https://github.com/sweetdark1/inventory-management-system-/assets/97196200/63f551b0-7963-4337-8826-2adf0792a418)
 
-
 ## Entities
 
 ### Product
-- Attributes:
   - product_id (Primary Key)
   - product_name
   - price
   - supplier_id (Foreign Key referencing Supplier)
 
 ### Supplier
-- Attributes:
   - supplier_id (Primary Key)
   - supplier_name
   - contact_info
 
 ### Wasted
-- Attributes:
   - wasted_id (Primary Key)
   - product_id (Foreign Key referencing Product)
   - quantity
   - reason
 
 ### Orders
-- Attributes:
   - order_id (Primary Key)
   - product_id (Foreign Key referencing Product)
   - quantity
