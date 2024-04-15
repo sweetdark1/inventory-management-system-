@@ -1,4 +1,5 @@
 # inventory-management-system-
+##check the master branch for the code and the apis 
 mohammad dadoa 1181622
 
 this  is my inventory management system designed to provide a platform for managing products, suppliers, orders, and waste.
