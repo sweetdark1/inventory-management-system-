@@ -10,20 +10,16 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Orders")
 public class OrderEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int order_id;
-    @Column
     private int quantity;
-    @Column
     private String order_date;
-    @Column
     private String delivery_date;
     @ManyToOne
-    @JoinColumn(name = "product_id",referencedColumnName = "id")
+    @JoinColumn(name = "product_id")
     private ProductEntity product_id;
-
-
 
 }

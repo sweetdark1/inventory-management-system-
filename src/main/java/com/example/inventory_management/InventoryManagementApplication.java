@@ -8,5 +8,9 @@ public class InventoryManagementApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(InventoryManagementApplication.class, args);
+        SpringApplication application = new SpringApplication(InventoryManagementApplication.class);
+        application.setAllowCircularReferences(true);
+        application.run(args);
+
     }
 }

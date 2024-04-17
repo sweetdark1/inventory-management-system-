@@ -9,11 +9,14 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Supplier")
-public class SupplierEntity implements Serializable {
+@Table(name = "Wasted")
+public class WastageEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long supplier_id;
-    private String name;
-    private String contact_info;
+    private long id;
+    private String quantity;
+    private String reason;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private ProductEntity product_id;
 }

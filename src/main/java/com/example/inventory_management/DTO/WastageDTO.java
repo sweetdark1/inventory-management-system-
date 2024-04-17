@@ -1,16 +1,13 @@
 package com.example.inventory_management.DTO;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SupplierDTO implements Serializable {
+public class WastageDTO {
     private long id;
-    private String name;
-    private String contactInfo;
+    private String quantity;
+    private String reason;
+    private long product_id;
 }

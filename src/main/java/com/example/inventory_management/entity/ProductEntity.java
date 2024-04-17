@@ -11,16 +11,15 @@ import java.io.Serializable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "Product")
 public class ProductEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column
     private String product_name;
-    @Column
     private int product_price;
     @ManyToOne
-    @JoinColumn(name = "supplier_id",referencedColumnName = "id")
+    @JoinColumn(name = "supplier_id")
     private SupplierEntity supplier_id;
 
 }

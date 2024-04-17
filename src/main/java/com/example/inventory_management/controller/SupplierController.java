@@ -1,33 +1,45 @@
 package com.example.inventory_management.controller;
 import com.example.inventory_management.DTO.SupplierDTO;
 import com.example.inventory_management.Services.SupplierService;
+import com.example.inventory_management.Services.SupplierServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 import java.util.function.Supplier;
 
-@RequestMapping("/supplier")
+@RequestMapping("/suppliers")
 @RestController
 public class SupplierController {
     @Autowired
-    private SupplierService service;
+    SupplierService supplierService = new SupplierServiceImpl();
 
     @GetMapping("{ID}")
-    public SupplierDTO getSupplier(@PathVariable int ID) {
-        //return serivce.getSupplier(ID);
-        return new SupplierDTO();
+    public SupplierDTO getSupplier(@PathVariable long ID) {
+
+         return supplierService.getSupplier(ID);
+
+    }
+    @GetMapping("")
+    public List<SupplierDTO> getAllSupplier() {
+
+        return supplierService.getAllSuppliers();
+
     }
 
     @PostMapping
-    public void createSupplier(@RequestBody Supplier supplier) {
+    public SupplierDTO createSupplier(@RequestBody SupplierDTO supplier) {
+       return supplierService.createSupplier(supplier);
     }
 
-    @PutMapping
-    public void updateSupplier(@RequestBody Supplier supplier) {
+    @PatchMapping("{ID}")
+    public void updateSupplier(@PathVariable long ID ,@RequestBody SupplierDTO supplier) {
+        supplierService.updateSupplier(ID,supplier);
 
     }
 
-    @DeleteMapping
-    public void delete(@RequestParam("supplierId") int supplierId) {
-
+    @DeleteMapping("{ID}")
+    public void delete(@PathVariable int ID) {
+        supplierService.deleteSupplier(ID);
     }
 }
