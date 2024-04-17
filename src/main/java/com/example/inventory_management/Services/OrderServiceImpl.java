@@ -3,7 +3,9 @@ package com.example.inventory_management.Services;
 import com.example.inventory_management.DTO.OrderDTO;
 import com.example.inventory_management.Mapper.OrderMapper;
 import com.example.inventory_management.entity.OrderEntity;
+import com.example.inventory_management.entity.ProductEntity;
 import com.example.inventory_management.repository.OrderRepository;
+import com.example.inventory_management.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +18,8 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private OrderRepository orderRepository;
+    @Autowired
+    private ProductRepository productRepository;
 
     @Override
     public OrderDTO getOrder(Long id) {
@@ -35,7 +39,9 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public OrderDTO placeOrder(OrderDTO orderDTO) {
+       ProductEntity p = productRepository.findById(orderDTO.getProduct_id()).orElseThrow(() -> new RuntimeException("Product not found"));
         OrderEntity orderEntity = OrderMapper.dtoToEntity(orderDTO);
+        orderEntity.setProduct_id(p);
         orderRepository.save(orderEntity);
         return orderDTO;
     }

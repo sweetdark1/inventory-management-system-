@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class OrderDTO {
-    private int orderId;
     private int quantity;
     private String orderDate;
     private String deliveryDate;
-    private ProductDTO product;
+    private long product_id;
 }
 

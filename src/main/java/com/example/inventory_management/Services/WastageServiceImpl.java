@@ -43,14 +43,14 @@ public class WastageServiceImpl implements WastageService {
 
         WastageEntity wastageEntity = WastageMapper.dtoToEntity(wastageDTO);
         ProductEntity s = productRepository.findById(wastageDTO.getProduct_id()).orElseThrow(() -> new RuntimeException("Supplier Not Found"));
+        wastageEntity.setProduct_id(s);
         wastageRepository.save(wastageEntity);
         return wastageDTO;
     }
 
     @Override
     public void updateWastage(Long id, WastageDTO wastageDTO) {
-        WastageEntity wastage = wastageRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Wastage record not found"));
+        WastageEntity wastage = wastageRepository.findById(id).orElseThrow(() -> new RuntimeException("Wastage record not found"));
         wastage.setQuantity(wastageDTO.getQuantity());
         wastage.setReason(wastageDTO.getReason());
 
